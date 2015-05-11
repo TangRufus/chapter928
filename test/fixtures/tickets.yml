@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  price: 1
+  scene: 2015-05-12 03:06:00
+  number: MyString
+
+two:
+  email: MyString
+  price: 1
+  scene: 2015-05-12 03:06:00
+  number: MyString
