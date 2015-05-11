@@ -38,6 +38,9 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'simple_form', '~> 3.1.0'
 gem 'email_validator', '~> 1.5.0'
 
+gem 'wicked_pdf', '~> 0.11.0'
+gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
+
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end

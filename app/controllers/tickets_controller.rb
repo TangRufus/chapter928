@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:edit]
+  before_action :set_ticket, only: [:edit, :show]
 
   # GET /tickets
   def index
@@ -22,14 +22,24 @@ class TicketsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ticket
-      @ticket = Ticket.find(params[:id])
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+      end
     end
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def ticket_params
-      params.require(:ticket).permit(:email, :price, :scene, :number)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ticket
+    @ticket = Ticket.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def ticket_params
+    params.require(:ticket).permit(:email, :price, :scene, :number)
+  end
 end
