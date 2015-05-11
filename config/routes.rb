@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :tickets
-
+  resources :tickets, only: [:index, :new, :create]
   root to: 'tickets#index'
 end
