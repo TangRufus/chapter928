@@ -37,6 +37,7 @@ gem 'unicorn', '~> 4.9.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'simple_form', '~> 3.1.0'
 gem 'email_validator', '~> 1.5.0'
+gem 'auto_strip_attributes', '~> 2.0.6'
 
 gem 'wicked_pdf', '~> 0.11.0'
 gem 'wkhtmltopdf-binary', '~> 0.9.9.3'

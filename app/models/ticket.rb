@@ -15,6 +15,11 @@ class Ticket < ActiveRecord::Base
     }
   end
 
+  auto_strip_attributes :email, :number, delete_whitespaces: true
+  # auto_strip_attributes :number :delete_whitespaces: true
+
+  before_save :upcase_number
+
   validates :email, presence: true, :email => true
   validates :price, presence: true, inclusion: { in: Ticket.prices.values }
   validates :scene, presence: true, inclusion: { in: Ticket.scenes.values }
@@ -22,9 +27,13 @@ class Ticket < ActiveRecord::Base
 
   def display_price
     if price == 0
-      'free'
+      'Free'
     else
       "HKD $#{price}"
     end
+  end
+
+  def upcase_number
+    self.number.upcase!
   end
 end
