@@ -1,14 +1,22 @@
 <%= simple_form_for(@ticket) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email %>
-    <%= f.input :price, as: :radio_buttons, collection: Ticket.prices %>
-    <%= f.input :scene, as: :radio_buttons, collection: Ticket.scenes %>
-    <%= f.input :number %>
-  </div>
+<div class="form-inputs">
+  <%= f.input :email %>
+  <%= f.input :price, as: :radio_buttons, collection: Ticket.prices %>
+  <%= f.input :scene, as: :radio_buttons, collection: Ticket.scenes %>
+  <%= f.input :number %>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+<div class="form-actions pull-right">
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-xs-8">
+      <%= f.button :submit, class: 'btn btn-lg btn-primary' %>
+    </div>
+    <div class="col-xs-4">
+      <%= link_to 'Back', tickets_path, class: 'btn btn-lg btn-link' %>
+    </div>
   </div>
-<% end %>
+  <% end %>

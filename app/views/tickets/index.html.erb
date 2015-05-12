@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tickets</h1>
+<h1>All Tickets</h1>
+<br />
+
+<%= link_to 'New Ticket', new_ticket_path, class: 'btn btn-lg btn-primary' %>
+
+<br />
 
 <table class="table table-striped">
   <thead>
@@ -29,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'New Ticket', new_ticket_path, class: 'btn btn-lg btn-primary' %>
