@@ -15,16 +15,16 @@
 
   <tbody>
     <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.email %></td>
-        <td><%= ticket.display_price %></td>
-        <td><%= ticket.scene.strftime('%d %B %H:%M') %></td>
-        <td><%= ticket.number %></td>
-        <td>link_to 'PDF document', ticket_path(ticket, format: :pdf)</td>
-      </td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tr>
+      <td><%= ticket.email %></td>
+      <td><%= ticket.display_price %></td>
+      <td><%= ticket.scene.strftime('%d %B %H:%M') %></td>
+      <td><%= ticket.number %></td>
+      <td><%= link_to 'View PDF', ticket_path(ticket, format: :pdf) %></td>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
 </table>
 
 <br>

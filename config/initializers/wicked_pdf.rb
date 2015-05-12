@@ -1,0 +1,3 @@
+WickedPdf.config = {
+  orientation: 'Landscape'
+}

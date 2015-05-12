@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+</head>
+<body>
+  <div id="content">
+    <div class="img-overlay">
+      <%= wicked_pdf_image_tag 'ticket.jpg' %>
+      <div class="overlay">
+        <span class="date"><%= @ticket.scene.strftime('%d %B %Y %H:%M') %></span><br />
+        <span><%= @ticket.display_price %></span><br />
+        <span><%= @ticket.number %></span><br />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

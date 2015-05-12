@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:edit, :show]
+  # layout 'pdf', only: [:show]
 
   # GET /tickets
   def index
@@ -26,7 +27,8 @@ class TicketsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name"   # Excluding ".pdf" extension.
+        render pdf: @ticket.number,
+               page_size: 'A5'
       end
     end
   end
