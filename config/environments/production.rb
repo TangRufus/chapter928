@@ -79,13 +79,13 @@ Rails.application.configure do
 
 
   # Mandrill SMTP
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.mandrillapp.com',
-  #   port: 587, # ports 587 and 2525 are also supported with STARTTLS
-  #   enable_starttls_auto: true, # detects and uses STARTTLS
-  #   user_name: Rails.application.secrets.mandrill_username,
-  #   password: Rails.application.secrets.mandrill_password, # SMTP password is any valid API key
-  #   authentication: 'login', # Mandrill supports 'plain' or 'login'
-  #   domain: Rails.application.secrets.app_domain_host # your domain to identify your server when connecting
-  # }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mandrillapp.com',
+    port: 587, # ports 587 and 2525 are also supported with STARTTLS
+    enable_starttls_auto: true, # detects and uses STARTTLS
+    user_name: Rails.application.secrets.mandrill_username,
+    password: Rails.application.secrets.mandrill_password, # SMTP password is any valid API key
+    authentication: 'login', # Mandrill supports 'plain' or 'login'
+    domain: Rails.application.secrets.app_domain_host # your domain to identify your server when connecting
+  }
 end
