@@ -1,3 +1,4 @@
 WickedPdf.config = {
-  orientation: 'Landscape'
+  orientation: 'Landscape',
+  page_size: 'A5'
 }

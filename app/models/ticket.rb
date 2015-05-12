@@ -19,6 +19,7 @@ class Ticket < ActiveRecord::Base
   # auto_strip_attributes :number :delete_whitespaces: true
 
   before_save :upcase_number
+  after_commit :deliver_new_ticket_email
 
   validates :email, presence: true, :email => true
   validates :price, presence: true, inclusion: { in: Ticket.prices.values }
@@ -35,5 +36,26 @@ class Ticket < ActiveRecord::Base
 
   def upcase_number
     self.number.upcase!
+  end
+
+  def deliver_new_ticket_email
+    pdf = genmerate_pdf
+    TicketMailer.new_ticket(self, pdf).deliver_now
+  end
+
+  def genmerate_pdf
+    # create an instance of ActionView, so we can use the render method outside of a controller
+    av = ActionView::Base.new()
+    av.view_paths = ActionController::Base.view_paths
+
+    # need these in case your view constructs any links or references any helper methods.
+    av.class_eval do
+      include Rails.application.routes.url_helpers
+      include ApplicationHelper
+    end
+
+    pdf_html = av.render pdf: self, template: "tickets/show.pdf.erb", layout: nil, locals: {ticket: self}
+    # use wicked_pdf gem to create PDF from the doc HTML
+    doc_pdf = WickedPdf.new.pdf_from_string(pdf_html)
   end
 end

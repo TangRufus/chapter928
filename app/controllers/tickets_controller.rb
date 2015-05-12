@@ -27,8 +27,7 @@ class TicketsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: @ticket.number,
-               page_size: 'A5'
+        render pdf: @ticket.number
       end
     end
   end
