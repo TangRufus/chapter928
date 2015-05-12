@@ -27,7 +27,8 @@ class TicketsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: @ticket.number
+        render pdf: @ticket.number,
+               locals: {ticket: @ticket}
       end
     end
   end
