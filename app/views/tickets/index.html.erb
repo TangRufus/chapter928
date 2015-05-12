@@ -6,6 +6,8 @@
 <%= link_to 'New Ticket', new_ticket_path, class: 'btn btn-lg btn-primary' %>
 
 <br />
+<br />
+<br />
 
 <table class="table table-striped">
   <thead>
@@ -14,7 +16,6 @@
       <th>Price</th>
       <th>Scene</th>
       <th>Ticket Number</th>
-      <th>Ticket PDF</th>
     </tr>
   </thead>
 
@@ -24,8 +25,7 @@
       <td><%= ticket.email %></td>
       <td><%= ticket.display_price %></td>
       <td><%= ticket.scene.strftime('%d %B %H:%M') %></td>
-      <td><%= ticket.number %></td>
-      <td><%= link_to 'View PDF', ticket_path(ticket, format: :pdf) %></td>
+      <td><%= ticket.number %><br /><%= link_to 'View PDF', ticket_path(ticket, format: :pdf) %></td>
     </td>
   </tr>
   <% end %>
