@@ -9,7 +9,7 @@ class Ticket < ActiveRecord::Base
   def self.scenes
     {
       '23 May 20:00': DateTime.new(2015, 5, 23, 20, 0),
-      '24 May 14:00': DateTime.new(2015, 5, 23, 13, 0),
+      '24 May 14:00': DateTime.new(2015, 5, 24, 14, 0),
       '24 May 20:00': DateTime.new(2015, 5, 24, 20, 0),
       '29 May 20:00': DateTime.new(2015, 5, 29, 20, 0)
     }
